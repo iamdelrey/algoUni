@@ -1,188 +1,249 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <list>
+#include <vector>
+#include <sstream>
 
-struct Product
+const int INITIAL_TABLE_SIZE = 10;
+const double LOAD_FACTOR_THRESHOLD = 0.75;
+
+struct Item
 {
 	int code;
 	std::string name;
 	double price;
-
-	Product(int c, const std::string &n, double p) : code(c), name(n), price(p) {}
 };
 
 class HashTable
 {
 private:
-	static const int INITIAL_SIZE = 100;
-	static const double LOAD_FACTOR_THRESHOLD;
-
-	std::vector<std::vector<Product>> table;
+	std::vector<std::list<Item>> table; // Вектор списков для цепного хеширования
 	int size;
 
 	int hashFunction(int code)
 	{
-		return code % table.size();
+		return code % size;
 	}
 
-	void resizeTable()
+	// Перехеширование таблицы с новым размером
+	void rehashTable(int newSize)
 	{
-		int newSize = table.size() * 2; // Удвоение размера таблицы
-		std::vector<std::vector<Product>> newTable(newSize);
+		std::vector<std::list<Item>> newTable(newSize);
 
-		// Перехеширование существующих элементов
-		for (const auto &chain : table)
+		// Перенос элементов из старой таблицы в новую таблицу
+		for (const auto &itemList : table)
 		{
-			for (const Product &product : chain)
+			for (const auto &item : itemList)
 			{
-				int index = product.code % newSize;
-				newTable[index].push_back(product);
+				int newIndex = hashFunction(item.code);
+				newTable[newIndex].push_back(item);
 			}
 		}
 
+		// Обновление размера таблицы и замена текущей таблицы новой
+		size = newSize;
 		table = std::move(newTable);
 	}
 
-	void checkResize()
-	{
-		double loadFactor = static_cast<double>(size) / table.size();
-		if (loadFactor >= LOAD_FACTOR_THRESHOLD)
-		{
-			resizeTable();
-		}
-	}
-
 public:
-	HashTable() : size(0)
+	HashTable()
 	{
-		table.resize(INITIAL_SIZE);
+		size = INITIAL_TABLE_SIZE;
+		table.resize(size);
 	}
 
-	void insert(const Product &product)
+	// Функция для вставки товара в хеш-таблицу
+	void insertItem(const Item &item)
 	{
-		checkResize();
-		int index = hashFunction(product.code);
-		table[index].push_back(product);
-		size++;
-	}
-
-	Product *search(int code)
-	{
-		int index = hashFunction(code);
-		for (Product &product : table[index])
+		// Проверка коэффициента загрузки и расширение таблицы при необходимости
+		double loadFactor = static_cast<double>(getItemCount()) / size;
+		if (loadFactor > LOAD_FACTOR_THRESHOLD)
 		{
-			if (product.code == code)
-			{
-				return &product;
-			}
+			int newSize = size * 2;
+			rehashTable(newSize);
 		}
-		return nullptr;
+
+		int index = hashFunction(item.code);
+		table[index].push_back(item);
 	}
 
-	bool remove(int code)
+	// Функция для удаления товара из хеш-таблицы
+	void removeItem(int code)
 	{
 		int index = hashFunction(code);
+
+		// Поиск товара в списке по индексу
 		for (auto it = table[index].begin(); it != table[index].end(); ++it)
 		{
 			if (it->code == code)
 			{
 				table[index].erase(it);
-				size--;
-				return true;
+				break;
 			}
 		}
-		return false;
 	}
 
-	void printAll()
+	// Функция для поиска товара по коду
+	Item *searchItem(int code)
 	{
-		for (const std::vector<Product> &chain : table)
+		int index = hashFunction(code);
+
+		// Поиск товара в списке по индексу
+		for (auto &item : table[index])
 		{
-			for (const Product &product : chain)
+			if (item.code == code)
 			{
-				std::cout << "Code: " << product.code << ", Name: " << product.name << ", Price: " << product.price << std::endl;
+				return &item;
+			}
+		}
+
+		return nullptr; // Товар не найден
+	}
+
+	// Функция для получения количества товаров в хеш-таблице
+	int getItemCount() const
+	{
+		int count = 0;
+
+		for (const auto &itemList : table)
+		{
+			count += itemList.size();
+		}
+
+		return count;
+	}
+
+	// Функция для вывода всех товаров в хеш-таблице
+	void displayItems()
+	{
+		for (int i = 0; i < size; ++i)
+		{
+			for (const auto &item : table[i])
+			{
+				std::cout << "Код: " << item.code << ", Название: " << item.name << ", Цена: " << item.price << std::endl;
 			}
 		}
 	}
 };
 
-const double HashTable::LOAD_FACTOR_THRESHOLD = 0.75;
+// Функция для вывода подсказок пользователю
+void printHelp()
+{
+	std::cout << "Доступные команды:" << std::endl;
+	std::cout << "1. insert <код> <название> <цена> - Вставить товар в хеш-таблицу." << std::endl;
+	std::cout << "2. remove <код> - Удалить товар из хеш-таблицы." << std::endl;
+	std::cout << "3. search <код>- Найти товар по коду в хеш-таблице." << std::endl;
+	std::cout << "4. display - Вывести все товары в хеш-таблице." << std::endl;
+	std::cout << "5. help - Вывести список доступных команд." << std::endl;
+	std::cout << "6. quit - Выйти из программы." << std::endl;
+}
 
 int main()
 {
-	HashTable productTable;
+	system("chcp 1251");
+	system("cls");
+	HashTable hashTable;
 
-	productTable.insert(Product(123456, "Product1", 10.0));
-	productTable.insert(Product(789012, "Product2", 20.0));
-	productTable.insert(Product(345678, "Product3", 30.0));
-	productTable.insert(Product(901234, "Product4", 40.0));
-	productTable.insert(Product(567890, "Product5", 50.0));
+	std::cout << "Добро пожаловать в программу управления хеш-таблицей" << std::endl;
+	printHelp();
 
+	std::string command;
 	while (true)
 	{
-		std::cout << "Введите команду (1 - добавить товар, 2 - найти товар, 3 - удалить товар, 4 - вывести все товары, 0 - выход): ";
-		int choice;
-		std::cin >> choice;
+		std::cout << "> ";
+		std::getline(std::cin, command);
 
-		switch (choice)
+		if (command.substr(0, 6) == "insert")
 		{
-		case 1:
-		{
+			std::istringstream iss(command);
+			std::string cmd, codeStr, name, priceStr;
 			int code;
-			std::string name;
 			double price;
-			std::cout << "Введите код товара: ";
-			std::cin >> code;
-			std::cout << "Введите название товара: ";
-			std::cin >> name;
-			std::cout << "Введите цену товара: ";
-			std::cin >> price;
-			productTable.insert(Product(code, name, price));
-			std::cout << "Товар добавлен." << std::endl;
-			break;
+			if (!(iss >> cmd >> codeStr >> name >> priceStr))
+			{
+				std::cout << "Ошибка: неверный формат команды." << std::endl;
+				continue;
+			}
+
+			try
+			{
+				code = std::stoi(codeStr);
+				price = std::stod(priceStr);
+				Item item{code, name, price};
+				hashTable.insertItem(item);
+				std::cout << "Товар успешно добавлен в хеш-таблицу." << std::endl;
+			}
+			catch (const std::exception &e)
+			{
+				std::cout << "Ошибка: неверный формат аргументов." << std::endl;
+			}
 		}
-		case 2:
+		else if (command.substr(0, 6) == "remove")
 		{
+			std::istringstream iss(command);
+			std::string cmd, codeStr;
 			int code;
-			std::cout << "Введите код товара для поиска: ";
-			std::cin >> code;
-			Product *searchedProduct = productTable.search(code);
-			if (searchedProduct)
+			if (!(iss >> cmd >> codeStr))
 			{
-				std::cout << "Найден товар: Code: " << searchedProduct->code << ", Name: " << searchedProduct->name << ", Price: " << searchedProduct->price << std::endl;
+				std::cout << "Ошибка: неверный формат команды." << std::endl;
+				continue;
 			}
-			else
+
+			try
 			{
-				std::cout << "Товар с указанным кодом не найден." << std::endl;
+				code = std::stoi(codeStr);
+				hashTable.removeItem(code);
+				std::cout << "Товар успешно удален из хеш-таблицы." << std::endl;
 			}
-			break;
+			catch (const std::exception &e)
+			{
+				std::cout << "Ошибка: неверный формат аргументов." << std::endl;
+			}
 		}
-		case 3:
+		else if (command.substr(0, 6) == "search")
 		{
+			std::istringstream iss(command);
+			std::string cmd, codeStr;
 			int code;
-			std::cout << "Введите код товара для удаления: ";
-			std::cin >> code;
-			if (productTable.remove(code))
+			if (!(iss >> cmd >> codeStr))
 			{
-				std::cout << "Товар с указанным кодом удален." << std::endl;
+				std::cout << "Ошибка: неверный формат команды." << std::endl;
+				continue;
 			}
-			else
+
+			try
 			{
-				std::cout << "Товар с указанным кодом не найден для удаления." << std::endl;
+				code = std::stoi(codeStr);
+				Item *item = hashTable.searchItem(code);
+				if (item)
+				{
+					std::cout << "Найден товар: Код: " << item->code << ", Название: " << item->name << ", Цена: " << item->price << std::endl;
+				}
+				else
+				{
+					std::cout << "Товар с указанным кодом не найден." << std::endl;
+				}
 			}
-			break;
+			catch (const std::exception &e)
+			{
+				std::cout << "Ошибка: неверный формат аргументов." << std::endl;
+			}
 		}
-		case 4:
+		else if (command == "display")
 		{
-			std::cout << "Все товары:" << std::endl;
-			productTable.printAll();
+			hashTable.displayItems();
+		}
+		else if (command == "help")
+		{
+			printHelp();
+		}
+		else if (command == "quit")
+		{
 			break;
 		}
-		case 0:
-			return 0;
-		default:
-			std::cout << "Неверная команда. Попробуйте снова." << std::endl;
-			break;
+		else
+		{
+			std::cout << "Неизвестная команда. Введите 'help' для получения списка команд." << std::endl;
 		}
 	}
 
