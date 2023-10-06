@@ -17,7 +17,7 @@ struct Item
 class HashTable
 {
 private:
-	std::vector<std::list<Item>> table; // Вектор списков для цепного хеширования
+	std::vector<std::list<Item>> table;
 	int size;
 
 	int hashFunction(int code)
@@ -25,12 +25,10 @@ private:
 		return code % size;
 	}
 
-	// Перехеширование таблицы с новым размером
 	void rehashTable(int newSize)
 	{
 		std::vector<std::list<Item>> newTable(newSize);
 
-		// Перенос элементов из старой таблицы в новую таблицу
 		for (const auto &itemList : table)
 		{
 			for (const auto &item : itemList)
@@ -40,7 +38,6 @@ private:
 			}
 		}
 
-		// Обновление размера таблицы и замена текущей таблицы новой
 		size = newSize;
 		table = std::move(newTable);
 	}
@@ -52,10 +49,8 @@ public:
 		table.resize(size);
 	}
 
-	// Функция для вставки товара в хеш-таблицу
 	void insertItem(const Item &item)
 	{
-		// Проверка коэффициента загрузки и расширение таблицы при необходимости
 		double loadFactor = static_cast<double>(getItemCount()) / size;
 		if (loadFactor > LOAD_FACTOR_THRESHOLD)
 		{
@@ -67,12 +62,10 @@ public:
 		table[index].push_back(item);
 	}
 
-	// Функция для удаления товара из хеш-таблицы
 	void removeItem(int code)
 	{
 		int index = hashFunction(code);
 
-		// Поиск товара в списке по индексу
 		for (auto it = table[index].begin(); it != table[index].end(); ++it)
 		{
 			if (it->code == code)
@@ -83,12 +76,10 @@ public:
 		}
 	}
 
-	// Функция для поиска товара по коду
 	Item *searchItem(int code)
 	{
 		int index = hashFunction(code);
 
-		// Поиск товара в списке по индексу
 		for (auto &item : table[index])
 		{
 			if (item.code == code)
@@ -97,10 +88,9 @@ public:
 			}
 		}
 
-		return nullptr; // Товар не найден
+		return nullptr;
 	}
 
-	// Функция для получения количества товаров в хеш-таблице
 	int getItemCount() const
 	{
 		int count = 0;
@@ -113,7 +103,6 @@ public:
 		return count;
 	}
 
-	// Функция для вывода всех товаров в хеш-таблице
 	void displayItems()
 	{
 		for (int i = 0; i < size; ++i)
@@ -126,7 +115,6 @@ public:
 	}
 };
 
-// Функция для вывода подсказок пользователю
 void printHelp()
 {
 	std::cout << "Доступные команды:" << std::endl;
@@ -140,8 +128,8 @@ void printHelp()
 
 int main()
 {
-	system("chcp 1251");
-	system("cls");
+	// system("chcp 1251");
+	// system("cls");
 	HashTable hashTable;
 
 	std::cout << "Добро пожаловать в программу управления хеш-таблицей" << std::endl;
