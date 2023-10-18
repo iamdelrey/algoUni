@@ -523,29 +523,29 @@ algoUni/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/build
 .PHONY : algoUni/fast
 
-pr2/hashTable.o: pr2/hashTable.cpp.o
-.PHONY : pr2/hashTable.o
+pr3/boyerMooreTurbo.o: pr3/boyerMooreTurbo.cpp.o
+.PHONY : pr3/boyerMooreTurbo.o
 
 # target to build an object file
-pr2/hashTable.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr2/hashTable.cpp.o
-.PHONY : pr2/hashTable.cpp.o
+pr3/boyerMooreTurbo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr3/boyerMooreTurbo.cpp.o
+.PHONY : pr3/boyerMooreTurbo.cpp.o
 
-pr2/hashTable.i: pr2/hashTable.cpp.i
-.PHONY : pr2/hashTable.i
+pr3/boyerMooreTurbo.i: pr3/boyerMooreTurbo.cpp.i
+.PHONY : pr3/boyerMooreTurbo.i
 
 # target to preprocess a source file
-pr2/hashTable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr2/hashTable.cpp.i
-.PHONY : pr2/hashTable.cpp.i
+pr3/boyerMooreTurbo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr3/boyerMooreTurbo.cpp.i
+.PHONY : pr3/boyerMooreTurbo.cpp.i
 
-pr2/hashTable.s: pr2/hashTable.cpp.s
-.PHONY : pr2/hashTable.s
+pr3/boyerMooreTurbo.s: pr3/boyerMooreTurbo.cpp.s
+.PHONY : pr3/boyerMooreTurbo.s
 
 # target to generate assembly for a file
-pr2/hashTable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr2/hashTable.cpp.s
-.PHONY : pr2/hashTable.cpp.s
+pr3/boyerMooreTurbo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr3/boyerMooreTurbo.cpp.s
+.PHONY : pr3/boyerMooreTurbo.cpp.s
 
 # Help Target
 help:
@@ -587,9 +587,9 @@ help:
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
 	@echo "... algoUni"
-	@echo "... pr2/hashTable.o"
-	@echo "... pr2/hashTable.i"
-	@echo "... pr2/hashTable.s"
+	@echo "... pr3/boyerMooreTurbo.o"
+	@echo "... pr3/boyerMooreTurbo.i"
+	@echo "... pr3/boyerMooreTurbo.s"
 .PHONY : help
 
 
