@@ -523,29 +523,29 @@ algoUni/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/build
 .PHONY : algoUni/fast
 
-pr2/hashTable.o: pr2/hashTable.cpp.o
-.PHONY : pr2/hashTable.o
+pr4/tree.o: pr4/tree.cpp.o
+.PHONY : pr4/tree.o
 
 # target to build an object file
-pr2/hashTable.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr2/hashTable.cpp.o
-.PHONY : pr2/hashTable.cpp.o
+pr4/tree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr4/tree.cpp.o
+.PHONY : pr4/tree.cpp.o
 
-pr2/hashTable.i: pr2/hashTable.cpp.i
-.PHONY : pr2/hashTable.i
+pr4/tree.i: pr4/tree.cpp.i
+.PHONY : pr4/tree.i
 
 # target to preprocess a source file
-pr2/hashTable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr2/hashTable.cpp.i
-.PHONY : pr2/hashTable.cpp.i
+pr4/tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr4/tree.cpp.i
+.PHONY : pr4/tree.cpp.i
 
-pr2/hashTable.s: pr2/hashTable.cpp.s
-.PHONY : pr2/hashTable.s
+pr4/tree.s: pr4/tree.cpp.s
+.PHONY : pr4/tree.s
 
 # target to generate assembly for a file
-pr2/hashTable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr2/hashTable.cpp.s
-.PHONY : pr2/hashTable.cpp.s
+pr4/tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr4/tree.cpp.s
+.PHONY : pr4/tree.cpp.s
 
 # Help Target
 help:
@@ -587,9 +587,9 @@ help:
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
 	@echo "... algoUni"
-	@echo "... pr2/hashTable.o"
-	@echo "... pr2/hashTable.i"
-	@echo "... pr2/hashTable.s"
+	@echo "... pr4/tree.o"
+	@echo "... pr4/tree.i"
+	@echo "... pr4/tree.s"
 .PHONY : help
 
 

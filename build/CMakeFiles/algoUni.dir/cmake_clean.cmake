@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/algoUni.dir/pr2/hashTable.cpp.o"
-  "CMakeFiles/algoUni.dir/pr2/hashTable.cpp.o.d"
+  "CMakeFiles/algoUni.dir/pr4/tree.cpp.o"
+  "CMakeFiles/algoUni.dir/pr4/tree.cpp.o.d"
   "algoUni"
   "algoUni.pdb"
 )
