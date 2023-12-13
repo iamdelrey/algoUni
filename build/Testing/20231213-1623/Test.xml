@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Darwin-clang++"
+	BuildStamp="20231213-1623-Experimental"
+	Name="MacBook-Pro-Anton-2.local"
+	Generator="ctest-3.27.1"
+	CompilerName="/usr/bin/clang++"
+	CompilerVersion="14.0.3.14030022"
+	OSName="macOS"
+	Hostname="MBP-Anton-2"
+	OSRelease="14.1.2"
+	OSVersion="23B92"
+	OSPlatform="arm64"
+	Is64Bits="1"
+	VendorString="IBM"
+	VendorID="IBM"
+	FamilyID="16777228"
+	ModelID="2"
+	ProcessorCacheSize="131072"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="1024"
+	TotalPhysicalMemory="16384"
+	LogicalProcessorsPerPhysical="8"
+	ProcessorClockFrequency="0"
+	>
+	<Testing>
+		<StartDateTime>Dec 13 19:23 MSK</StartDateTime>
+		<StartTestTime>1702484620</StartTestTime>
+		<TestList/>
+		<EndDateTime>Dec 13 19:23 MSK</EndDateTime>
+		<EndTestTime>1702484620</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
