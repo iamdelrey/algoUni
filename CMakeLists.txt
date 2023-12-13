@@ -4,7 +4,7 @@ add_definitions(-std=c++20)
 include(CTest)
 enable_testing()
 
-add_executable(algoUni pr4/tree.cpp)
+add_executable(algoUni pr7/dynamicProgramming.cpp)
 #add_executable(algoUni pr5/test.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

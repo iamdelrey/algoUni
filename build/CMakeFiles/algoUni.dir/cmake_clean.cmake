@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/algoUni.dir/pr4/tree.cpp.o"
-  "CMakeFiles/algoUni.dir/pr4/tree.cpp.o.d"
+  "CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o"
+  "CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o.d"
   "algoUni"
   "algoUni.pdb"
 )

@@ -523,29 +523,29 @@ algoUni/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/build
 .PHONY : algoUni/fast
 
-pr4/tree.o: pr4/tree.cpp.o
-.PHONY : pr4/tree.o
+pr7/dynamicProgramming.o: pr7/dynamicProgramming.cpp.o
+.PHONY : pr7/dynamicProgramming.o
 
 # target to build an object file
-pr4/tree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr4/tree.cpp.o
-.PHONY : pr4/tree.cpp.o
+pr7/dynamicProgramming.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o
+.PHONY : pr7/dynamicProgramming.cpp.o
 
-pr4/tree.i: pr4/tree.cpp.i
-.PHONY : pr4/tree.i
+pr7/dynamicProgramming.i: pr7/dynamicProgramming.cpp.i
+.PHONY : pr7/dynamicProgramming.i
 
 # target to preprocess a source file
-pr4/tree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr4/tree.cpp.i
-.PHONY : pr4/tree.cpp.i
+pr7/dynamicProgramming.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.i
+.PHONY : pr7/dynamicProgramming.cpp.i
 
-pr4/tree.s: pr4/tree.cpp.s
-.PHONY : pr4/tree.s
+pr7/dynamicProgramming.s: pr7/dynamicProgramming.cpp.s
+.PHONY : pr7/dynamicProgramming.s
 
 # target to generate assembly for a file
-pr4/tree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr4/tree.cpp.s
-.PHONY : pr4/tree.cpp.s
+pr7/dynamicProgramming.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algoUni.dir/build.make CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.s
+.PHONY : pr7/dynamicProgramming.cpp.s
 
 # Help Target
 help:
@@ -587,9 +587,9 @@ help:
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
 	@echo "... algoUni"
-	@echo "... pr4/tree.o"
-	@echo "... pr4/tree.i"
-	@echo "... pr4/tree.s"
+	@echo "... pr7/dynamicProgramming.o"
+	@echo "... pr7/dynamicProgramming.i"
+	@echo "... pr7/dynamicProgramming.s"
 .PHONY : help
 
 

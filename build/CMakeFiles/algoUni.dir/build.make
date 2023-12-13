@@ -69,28 +69,28 @@ include CMakeFiles/algoUni.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/algoUni.dir/flags.make
 
-CMakeFiles/algoUni.dir/pr4/tree.cpp.o: CMakeFiles/algoUni.dir/flags.make
-CMakeFiles/algoUni.dir/pr4/tree.cpp.o: /Users/anton/Desktop/projects\ c++/algoUni/pr4/tree.cpp
-CMakeFiles/algoUni.dir/pr4/tree.cpp.o: CMakeFiles/algoUni.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/anton/Desktop/projects c++/algoUni/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/algoUni.dir/pr4/tree.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/algoUni.dir/pr4/tree.cpp.o -MF CMakeFiles/algoUni.dir/pr4/tree.cpp.o.d -o CMakeFiles/algoUni.dir/pr4/tree.cpp.o -c "/Users/anton/Desktop/projects c++/algoUni/pr4/tree.cpp"
+CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o: CMakeFiles/algoUni.dir/flags.make
+CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o: /Users/anton/Desktop/projects\ c++/algoUni/pr7/dynamicProgramming.cpp
+CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o: CMakeFiles/algoUni.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/anton/Desktop/projects c++/algoUni/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o -MF CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o.d -o CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o -c "/Users/anton/Desktop/projects c++/algoUni/pr7/dynamicProgramming.cpp"
 
-CMakeFiles/algoUni.dir/pr4/tree.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/algoUni.dir/pr4/tree.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/anton/Desktop/projects c++/algoUni/pr4/tree.cpp" > CMakeFiles/algoUni.dir/pr4/tree.cpp.i
+CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/anton/Desktop/projects c++/algoUni/pr7/dynamicProgramming.cpp" > CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.i
 
-CMakeFiles/algoUni.dir/pr4/tree.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/algoUni.dir/pr4/tree.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/anton/Desktop/projects c++/algoUni/pr4/tree.cpp" -o CMakeFiles/algoUni.dir/pr4/tree.cpp.s
+CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/anton/Desktop/projects c++/algoUni/pr7/dynamicProgramming.cpp" -o CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.s
 
 # Object files for target algoUni
 algoUni_OBJECTS = \
-"CMakeFiles/algoUni.dir/pr4/tree.cpp.o"
+"CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o"
 
 # External object files for target algoUni
 algoUni_EXTERNAL_OBJECTS =
 
-algoUni: CMakeFiles/algoUni.dir/pr4/tree.cpp.o
+algoUni: CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o
 algoUni: CMakeFiles/algoUni.dir/build.make
 algoUni: CMakeFiles/algoUni.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/anton/Desktop/projects c++/algoUni/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable algoUni"

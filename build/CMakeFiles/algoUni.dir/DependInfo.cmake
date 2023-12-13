@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/anton/Desktop/projects c++/algoUni/pr4/tree.cpp" "CMakeFiles/algoUni.dir/pr4/tree.cpp.o" "gcc" "CMakeFiles/algoUni.dir/pr4/tree.cpp.o.d"
+  "/Users/anton/Desktop/projects c++/algoUni/pr7/dynamicProgramming.cpp" "CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o" "gcc" "CMakeFiles/algoUni.dir/pr7/dynamicProgramming.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
